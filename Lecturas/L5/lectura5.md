@@ -3,13 +3,13 @@
 El paper trata sobre la aplicación de técnicas de ensamble sobre sistemas recomendadores, es decir, de generar predicciones a partir de una combinación de los resultados obtenidos 
 con cada modelo individual. Los modelos individuales utilizados son de filtrado colaborativo, utilizando las interacciones usuario-ítem para aprender. Entre estos modelos se encuentran los basados en KNN (K-Nearest Neighbors), SVD (Matrix Factorization), AFM (Asymmetric Factor Model), RBM (Restricted Boltzmann Machine) y GE (Global Effects). Se presentan distintos experimentos basados en ensambles, los que son evaluados utilizando la métrica del RMSE (Raíz del Error Cuadrático Medio). Las técnicas de ensamble probadas fueron:
 
-* LR (Linear Regression): Infiere los pesos óptimos de la combinación lineal resolviendo el problema de los mínimos cuadrados.
-* BLR (Binned Linear Regression): Divide el set de entrenamiento en distintos contenedores bajo algún criterio (tiempo, soporte, frecuencia). Se obtiene una combinación para cada uno de estos contenedores, eligiendo la correspondiente al contenedor que representa mejor al usuario y al ítem al momento de predecir.
-* NN (Neural Network): Se entrena una red neuronal para obtener la predicción, recibiendo como entrada las predicciones de los modelos individuales.
-* BGBDT (Bagged Gradient Boosted Decision Tree): Se aplican las técnicas de Bagging (entrenar distintas copias del modelo en sets de entrenamiento ligeramente distintos) y Boosting (entrenar modelos en cadena, cada uno aprendiendo una fracción de la predicción) al entrenar una serie de árboles de decisión.
-* KRR (Kernel Ridge Regression Blending): Regresión basada en un kernel no lineal.
-* KNN (K-Nearest Neighbors Blending): Se utilizan las K predicciones más cercanas.
-* Bagging + NN + GBDT + PR: Se aplica la técnica de Bagging sobre 3 modelos (árboles de decisión, red neuronal, regresión polinomial), los que luego son combinados mediante regresión lineal simple.
+* **LR (Linear Regression):** Infiere los pesos óptimos de la combinación lineal resolviendo el problema de los mínimos cuadrados.
+* **BLR (Binned Linear Regression):** Divide el set de entrenamiento en distintos contenedores bajo algún criterio (tiempo, soporte, frecuencia). Se obtiene una combinación para cada uno de estos contenedores, eligiendo la correspondiente al contenedor que representa mejor al usuario y al ítem al momento de predecir.
+* **NN (Neural Network):** Se entrena una red neuronal para obtener la predicción, recibiendo como entrada las predicciones de los modelos individuales.
+* **BGBDT (Bagged Gradient Boosted Decision Tree):** Se aplican las técnicas de Bagging (entrenar distintas copias del modelo en sets de entrenamiento ligeramente distintos) y Boosting (entrenar modelos en cadena, cada uno aprendiendo una fracción de la predicción) al entrenar una serie de árboles de decisión.
+* **KRR (Kernel Ridge Regression Blending):** Regresión basada en un kernel no lineal.
+* **KNN (K-Nearest Neighbors Blending):** Se utilizan las K predicciones más cercanas.
+* **Bagging + NN + GBDT + PR:** Se aplica la técnica de Bagging sobre 3 modelos (árboles de decisión, red neuronal, regresión polinomial), los que luego son combinados mediante regresión lineal simple.
 
 Se observa que entre estos métodos de ensamble el mejor fue el de Bagging + NN + GBDT + PR, seguido de una NN por sí sola. Finalmente, se concluye que las técnicas de ensamble permiten generar un sistema recomendador preciso y robusto, capaz de competir con los mejores modelos individuales del estado del arte (aunque logra un rendimiento un poco menor).
 
